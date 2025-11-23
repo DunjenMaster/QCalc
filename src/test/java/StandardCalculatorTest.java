@@ -29,4 +29,20 @@ public class StandardCalculatorTest {
         Assertions.assertEquals(12, actualResult);
     }
 
+    @Test
+    @DisplayName("Testing Multiplication Operation")
+    public void testMultiplicationOperation(){
+        standardCalculator.multiply(5,5);
+        int actualResult = standardCalculator.getResult();
+        Assertions.assertEquals(25, actualResult);
+    }
+
+    @Test
+    @DisplayName("Testing Division Operation")
+    public void testDivisionOperation(){
+        standardCalculator.divide(10,2);
+        int actualCalculator = standardCalculator.getResult();
+        Assertions.assertEquals(5, actualCalculator);
+    }
+
 }
