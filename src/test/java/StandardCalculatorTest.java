@@ -87,4 +87,45 @@ public class StandardCalculatorTest {
         });
     }
 
+    @Test
+    @DisplayName("Test Subtraction Underflow Scenario for Negative Overflow")
+    void testSubtractionOverflowScenario_Negative(){
+        Assertions.assertThrows(ArithmeticException.class, () -> {
+            standardCalculator.subtract(-Double.MAX_VALUE, Double.MAX_VALUE);
+        });
+    }
+
+
+    @Test
+    @DisplayName("Test Multiply Overflow Scenario")
+    void testMultiplyOverflowScenario(){
+        Assertions.assertThrows(ArithmeticException.class, () -> {
+            standardCalculator.multiply(Double.MAX_VALUE, Double.MAX_VALUE);
+        });
+    }
+
+    @Test
+    @DisplayName("Test Multiply Underflow Scenario for Negative Infinity")
+    void testmultiplyUnderflowScenario_NegaticeInfinity(){
+        Assertions.assertThrows(ArithmeticException.class, () -> {
+            standardCalculator.multiply(-Double.MAX_VALUE, Double.MAX_VALUE);
+        });
+    }
+
+    @Test
+    @DisplayName("Test Divsion by Zero Scenario")
+    void testDivisionByZeroScenario(){
+        Assertions.assertThrows(ArithmeticException.class,() -> {
+            standardCalculator.divide(10,0);
+        });
+    }
+
+    @Test
+    @DisplayName("Test Division Overflow Scenario")
+    void testDivisionOverflowScnario(){
+        Assertions.assertThrows(ArithmeticException.class, () -> {
+            standardCalculator.divide(Double.MAX_VALUE, 0.0000000000000001);
+        });
+    }
+
 }
