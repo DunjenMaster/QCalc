@@ -36,12 +36,21 @@ public class StandardCalculator {
 
     // Implementing Double Data Type for above arithmetic operations as main logic and avoid duplicate methods
     public void add(double num1, double num2){
-        result = num1 + num2;
+        double result = num1 + num2;
+        if((result == Double.MAX_VALUE) || (result == Double.POSITIVE_INFINITY) || (result == -Double.MAX_VALUE) || (result == Double.NEGATIVE_INFINITY)){
+            throw new ArithmeticException("Overflow/Underflow occurred during addition operation");
+        }
+        this.result = result;
     }
 
     public void subtract(double num1, double num2){
-        result = num1 - num2;
+       double result = num1 - num2;
+       if((result == -Double.MAX_VALUE) || (result == Double.NEGATIVE_INFINITY) || (result == Double.POSITIVE_INFINITY) || (result == Double.MAX_VALUE)){
+              throw new ArithmeticException("Overflow/Underflow occurred during subtraction operation");
+       }
+       this.result = result;
     }
+
 
     public void multiply(double num1, double num2){
         result = num1 * num2;
