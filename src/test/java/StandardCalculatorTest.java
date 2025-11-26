@@ -70,4 +70,21 @@ public class StandardCalculatorTest {
         Assertions.assertEquals(25.0,actualResult);
     }
 
+    //Handling the Overflow/Underflow scenarios
+    @Test
+    @DisplayName("Test Subtract Overflow Scenario")
+    void testSubtractOverflowScenario(){
+        Assertions.assertThrows(ArithmeticException.class, () -> {
+            standardCalculator.add(Double.MAX_VALUE, Double.MAX_VALUE);
+        });
+    }
+
+    @Test
+    @DisplayName("Test Subtract Underflow Scenario")
+    void testSubtractionOverflowScenario(){
+        Assertions.assertThrows(ArithmeticException.class, () -> {
+            standardCalculator.subtract(Double.MAX_VALUE, -Double.MAX_VALUE);
+        });
+    }
+
 }
