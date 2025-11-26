@@ -53,10 +53,18 @@ public class StandardCalculator {
 
 
     public void multiply(double num1, double num2){
-        result = num1 * num2;
+        double result = num1 * num2;
+        if(Double.isInfinite(result)){
+            throw new ArithmeticException("Overflow/Underflow occurred during multiplication operation");
+        }
+        this.result = result;
     }
 
     public void divide(double num1, double num2){
-        result = num1 / num2;
+        double result = num1 / num2;
+        if(Double.isInfinite(result) || Double.isNaN(result)){
+            throw new ArithmeticException("Invalid division (infinity or NAN");
+        }
+        this.result = result;
     }
 }
