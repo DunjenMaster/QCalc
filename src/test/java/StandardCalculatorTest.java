@@ -72,16 +72,16 @@ public class StandardCalculatorTest {
 
     //Handling the Overflow/Underflow scenarios
     @Test
-    @DisplayName("Test Subtract Overflow Scenario")
-    void testSubtractOverflowScenario(){
+    @DisplayName("Test Add Overflow Scenario")
+    void testAddtionOverflowScenario(){
         Assertions.assertThrows(ArithmeticException.class, () -> {
             standardCalculator.add(Double.MAX_VALUE, Double.MAX_VALUE);
         });
     }
 
     @Test
-    @DisplayName("Test Subtract Underflow Scenario")
-    void testSubtractionOverflowScenario(){
+    @DisplayName("Test Subtract Underflow Scenario for Positive Overflow")
+    void testSubtractionOverflowScenario_Positive(){
         Assertions.assertThrows(ArithmeticException.class, () -> {
             standardCalculator.subtract(Double.MAX_VALUE, -Double.MAX_VALUE);
         });
